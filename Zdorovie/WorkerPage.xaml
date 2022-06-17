@@ -1,0 +1,53 @@
+﻿<Page x:Class="Zdorovie.WorkerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Zdorovie"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="WorkerPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <Label Content="Сотрудники" HorizontalAlignment="Center" Grid.ColumnSpan="4" FontSize="20"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Label Content="Введите ФИО:" VerticalAlignment="Center"/>
+            <TextBox x:Name="fioBox" Width="250" VerticalAlignment="Center" TextChanged="ChangeFio" Margin="0,8,0,8.4"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
+            <Label Content="Поиск по должности:" VerticalAlignment="Center"/>
+            <ComboBox Name="idPositionBox" Width="250" VerticalAlignment="Center" DisplayMemberPath="idPosition" SelectionChanged="ChangeidPosition"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="2" Grid.ColumnSpan="2" AutoGenerateColumns="False" Name="workertable">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Width="*" Binding="{Binding idWorker}"/>
+                <DataGridTextColumn Header="ФИО" Width="*" Binding="{Binding fio}"/>
+                <DataGridTextColumn Header="Должность" Width="*" Binding="{Binding TitlePosition}"/>
+
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header ="Редактировать" Click="EditWorker"/>
+                    <MenuItem Header ="Удалить" Click="DeleteWorker"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+
+
+        <Button Content="Добавить" HorizontalAlignment="Left" Width="100" Grid.Row="3" Grid.Column="0" Click="AddWorker" Margin="0,9.8,0,5.6"/>
+    </Grid>
+</Page>
+

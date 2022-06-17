@@ -1,0 +1,26 @@
+﻿<Window x:Class="Zdorovie.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zdorovie"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid Background="#FF278B27">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid  >
+            <StackPanel>
+                <Image Source="Logo.jpg" Margin="10,10,148.6,10" Height="66"/>
+                <Button Width="200" Height="30" Margin="10,10,10,10" Click="ShowPatient" Content="Пациенты"/>
+                <Button Width="200" Height="30" Margin="10,0,10,10" Click="ShowWorker" Content="Сотрудники"/>
+            </StackPanel>
+        </Grid>
+        <Frame Grid.Column="1" x:Name="frame1"/>
+
+    </Grid>
+</Window>
+
