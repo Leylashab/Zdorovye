@@ -78,7 +78,10 @@ namespace Zdorovie
 
                 }
 
-
+                catch
+                {
+                    MessageBox.Show("Ошибка!");
+                }
             }
         }
     }
