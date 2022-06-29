@@ -20,11 +20,11 @@ namespace Zdorovie
     /// </summary>
     public partial class AddWorker : Page
     {
-        ZdorovyeEntities Context;
-        public AddWorker()
+        ZdorovyeEntities context;
+        public AddWorker(ZdorovyeEntities cont)
         {
             InitializeComponent();
-            Context = context;
+            context = cont;
             flag = true;
         }
         bool flag;
@@ -45,7 +45,7 @@ namespace Zdorovie
                     idReception = (recBox.SelectedItem as Reception).idReception,               
                 };
                 context.Worker.Add(worker);
-                context.SaveChanges();
+                Context.SaveChanges();
                 NavigationService.Navigate(new WorkerPage());
             }
             else
@@ -68,7 +68,7 @@ namespace Zdorovie
             context = cont;
             posBox.ItemsSource = context.ListPositions.ToList();
             appBox.ItemsSource = context.Appel.ToList();
-            recBox.ItemsSource = context.Reception.ToList();
+            recBox.ItemsSource = context.Reception.ToList(); 
             timeBox.ItemsSource = context.TimeTable.ToList();
 
           

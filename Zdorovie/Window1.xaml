@@ -15,8 +15,12 @@
         <Grid  >
             <StackPanel>
                 <Image Source="Logo.jpg" Margin="10,10,148.6,10" Height="66"/>
-                <Button Width="200" Height="30" Margin="10,10,10,10" Click="ShowPatient" Content="Пациенты"/>
-                <Button Width="200" Height="30" Margin="10,0,10,10" Click="ShowWorker" Content="Сотрудники"/>
+                <Button Width="200" Height="30" Margin="10,10,10,10" Click="ShowPatient" Content="Сотрудники"/>
+                <Button Width="200" Height="30" Margin="10,0,10,10" Click="ShowWorker" Content="Клиенты"/>
+                <Button Width="200" Height="30" Margin="10,0,10,10" Click="ShowWorker" Content="Процедуры"/>
+                <Button Width="200" Height="30" Margin="10,0,10,10" Click="ShowWorker" Content="Анализы"/>
+                <Button Width="200" Height="30" Margin="10,0,10,10" Click="ShowWorker" Content="Расписание врачей"/>
+
             </StackPanel>
         </Grid>
         <Frame Grid.Column="1" x:Name="frame1"/>

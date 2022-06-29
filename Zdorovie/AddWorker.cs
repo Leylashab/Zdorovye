@@ -2,7 +2,7 @@
 
 namespace Zdorovie
 {
-    internal class AddWorker : Uri
+    internal  partial class AddWorker : Uri
     {
         private ZdorovyeEntities context;
 
@@ -11,7 +11,7 @@ namespace Zdorovie
             this.context = context;
         }
 
-        public AddWorker(ZdorovyeEntities context, Worker worker)
+        public   AddWorker(ZdorovyeEntities context, Worker worker)
         {
             this.context = context;
         }

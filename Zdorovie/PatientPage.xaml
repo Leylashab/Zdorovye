@@ -47,6 +47,6 @@
         </DataGrid>
 
 
-        <Button Content="Добавить" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Grid.Row="3" Grid.Column="0" Click="AddPatient" Margin="0,0,0,5.6"/>
+        <Button Content="Добавить" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Grid.Row="3" Grid.Column="0" Click="AddPatient" Margin="0,0,0,-0.4"/>
     </Grid>
 </Page>

@@ -23,7 +23,7 @@ namespace Zdorovie
     {
         ZdorovyeEntities Context;
 
-        public AddPatient()
+        public AddPatient(Context)
         {
             InitializeComponent();
             Context = context;
