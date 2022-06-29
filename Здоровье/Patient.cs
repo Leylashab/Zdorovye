@@ -29,3 +29,23 @@ namespace Zdorovie
         public virtual ICollection<Appel> Appel { get; set; }
     }
 }
+ public PatientPage()
+        {
+            InitializeComponent();
+            context = new ZdorovyeEntities();
+            patienttable.ItemsSource = context.Patient.ToList();     
+        }
+        public void RefreshData()
+        {
+            var list = context.Patient.ToList();
+
+            if (!string.IsNullOrWhiteSpace(fiobox.Text))
+            {
+                list = list.Where(x => x.fio.ToLower().Contains(fiobox.Text.ToLower())).ToList();
+            }
+            if (!string.IsNullOrWhiteSpace(omsbox.Text))
+            {
+                list = list.Where(x => x.oms.ToString().Contains(omsbox.Text.ToLower())).ToList();
+            }
+            patienttable.ItemsSource = list;
+        }
