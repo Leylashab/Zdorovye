@@ -49,3 +49,69 @@ namespace Zdorovie
             }
             patienttable.ItemsSource = list;
         }
+
+public AddWorker(ZdorovyeEntities cont)
+        {
+            InitializeComponent() ;
+            context = cont;
+            posBox.ItemsSource = context.ListPositions.ToList();
+            apBox.ItemsSource = context.Appel.ToList();
+            recBox.ItemsSource = context.Reception.ToList();
+            timeBox.ItemsSource = context.ListTimeTableForWorker.ToList();
+            flag = true;
+        }
+        bool flag;
+        private void AddSave(object sender, RoutedEventArgs e)
+        {
+            if (flag == true)
+            {
+                Worker worker = new Worker()
+                {
+                    idWorker = Convert.ToInt32(idBox.Text),
+                    fio = fioBox.Text,
+                    idPosition = (posBox.SelectedItem as ListPositions).id,
+                    password = passBox.Text,
+                    idAppel = (apBox.SelectedItem as Appel).idAppel,
+                    idReception = (recBox.SelectedItem as Reception).idReception,
+                   
+                };
+                context.Worker.Add(worker);
+                context.SaveChanges();
+                NavigationService.Navigate(new WorkerPage());
+            }
+            else
+            {
+
+                context.Worker.Find(workers.idWorker).fio = fioBox.Text;
+                context.Worker.Find(workers.idWorker).idPosition = (posBox.SelectedItem as ListPositions).id;
+                context.Worker.Find(workers.idWorker).password = passBox.Text;
+                context.Worker.Find(workers.idWorker).idAppel = (apBox.SelectedItem as Appel).idAppel;
+                context.Worker.Find(workers.idWorker).idReception = (recBox.SelectedItem as Reception).idReception;
+               //context.Worker.Find(worker1.idWorker).idTimeTable = (timeBox.SelectedItem as TimeTable).id;
+              
+                context.SaveChanges();
+                NavigationService.Navigate(new WorkerPage());
+            }
+        }
+        Worker workers;
+        public AddWorker(ZdorovyeEntities cont, Worker worker)
+        {
+            InitializeComponent();
+            context = cont;
+            posBox.ItemsSource = context.ListPositions.ToList();
+            apBox.ItemsSource = context.Appel.ToList();
+            recBox.ItemsSource = context.Reception.ToList();
+            timeBox.ItemsSource = context.TimeTable.ToList();
+
+            workers = worker;
+            idBox.Text = worker.idWorker.ToString();
+            fioBox.Text = worker.fio;
+            posBox.SelectedItem = worker.ListPositions;
+            passBox.Text = worker.password;
+            apBox.Text = worker.Appel.ToString();
+            recBox.Text = worker.Reception.ToString();
+           
+
+            
+            flag = false;
+        }
